@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania 1-16</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #000; color: #0f0; padding: 20px; }
+        .t { border-bottom: 1px solid #222; padding: 10px 0; }
+        b { color: #fff; }
+    </style>
+</head>
+<body>
+    <div id="o"></div>
+
+    <script>
+        const o = document.getElementById('o');
+        const log = (n, txt) => o.innerHTML += `<div class="t"><b>// ${n}</b><br>${txt}</div>`;
+
+        // 1
+        let r1 = ""; for(let i=1; i<=10; i++) r1 += i + " ";
+        log(1, r1);
+
+        // 2
+        let r2 = ""; for(let i=10; i>=1; i--) r2 += i + " ";
+        log(2, r2);
+
+        // 3
+        let s3 = 0; for(let i=1; i<=10; i++) s3 += i;
+        log(3, "Suma: " + s3);
+
+        // 4
+        let r4 = ""; for(let i=1; i<=10; i++) r4 += (i * 2) + " ";
+        log(4, r4);
+
+        // 5
+        let X5 = parseFloat(prompt("5. Liczba miesięcy:"));
+        let Y5 = parseFloat(prompt("5. Kwota miesięczna:"));
+        let t5 = 0;
+        for(let i=0; i<X5; i++) { t5 += Y5; t5 += t5 * 0.08; }
+        log(5, "Zgromadzona kwota: " + t5.toFixed(2));
+
+        // 6
+        let n6=100, a1=5, r6=10;
+        let s6 = ((2*a1 + (n6-1)*r6)/2)*n6;
+        log(6, "Suma ciągu: " + s6);
+
+        // 7
+        let c7 = 0; for(let i=10; i>=1; i--) c7 += (i * i);
+        log(7, "Cegły w piramidzie: " + c7);
+
+        // 8
+        let X8 = parseInt(prompt("8. Podstawa ściany:"));
+        let Y8 = parseInt(prompt("8. Wysokość (rzędy):"));
+        let Z8 = parseInt(prompt("8. O ile krótszy rząd:"));
+        let s8 = 0;
+        for(let i=0; i<Y8; i++) { let rz = X8 - (i*Z8); if(rz>0) s8 += rz; }
+        log(8, "Cegły w ścianie: " + s8);
+
+        // 9
+        let K9 = parseFloat(prompt("9. Waga cegły (kg):"));
+        log(9, "Waga ściany: " + (s8 * K9) + " kg");
+
+        // 10
+        let a10 = parseFloat(prompt("10. Liczba A:"));
+        let op = prompt("10. Operator (+,-,*,/):");
+        let b10 = parseFloat(prompt("10. Liczba B:"));
+        log(10, "Wynik: " + eval(`${a10}${op}${b10}`));
+
+        // 11
+        let N11 = parseInt(prompt("11. Ile elementów (N):"));
+        let X11 = parseFloat(prompt("11. Start (X):"));
+        let Y11 = parseFloat(prompt("11. Różnica (Y):"));
+        let r11 = "";
+        for(let i=0; i<N11; i++) r11 += (X11 + i*Y11) + " ";
+        log(11, r11);
+
+        // 12
+        let la, lb, s12;
+        do {
+            la = parseFloat(prompt("12. Liczba A:"));
+            lb = parseFloat(prompt("12. Liczba B:"));
+            s12 = la + lb;
+        } while(s12 !== 0);
+        log(12, "Pętla przerwana (suma 0)");
+
+        
+        // 13 
+        let n13 = parseInt(prompt("13. Silnia z liczby:"));
+        let f13 = 1; for(let i=1; i<=n13; i++) f13 *= i;
+        log(13, "Silnia: " + f13);
+
+        // 14
+        let n14 = parseInt(prompt("14. Silnia z:"));
+        let f14 = 1; for(let i=1; i<=n14; i++) f14 *= i;
+        log(14, "Silnia: " + f14);
+
+        // 15
+        let n15 = parseInt(prompt("15. Ile liczb w ciągu:"));
+        let v15 = parseFloat(prompt("15. Wartość startowa:"));
+        let r15 = "";
+        for(let i=0; i<n15; i++) { r15 += v15 + " "; v15 = v15 * v15; }
+        log(15, r15);
+
+        // 16
+        let s16=0, l16="";
+        for(let i=0; i<10; i++) {
+            let los = Math.floor(Math.random()*51)+50;
+            l16 += los + " "; s16 += los;
+        }
+        log(16, `Suma: ${s16}, Średnia: ${s16/10}`);
+    </script>
+</body>
+</html>
